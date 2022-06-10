@@ -19,6 +19,22 @@ class Mahasiswa_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function save($data, $is_update=false)
+	{
+		// Query
+		if ($is_update) {
+			$this->db->update($this->table, $data, ['nim' => $data['nim']]);
+		} else {
+			$this->db->insert($this->table, $data);
+		}
+	}
+
+	public function delete($data)
+	{
+		// Query
+		$this->db->delete($this->table, $data);
+	}
+
 	public function predikat()
 	{
 		return $this->ipk > 3.75 ? 'Cumlaude' : 'Baik';
