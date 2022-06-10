@@ -59,7 +59,7 @@ class Mahasiswa extends CI_Controller {
 		// Call save function
 		$this->mhs->save($data);
 
-		redirect(base_url('mahasiswa/index'));
+		redirect(base_url('mahasiswa/'));
 	}
 
 	public function edit()
@@ -92,7 +92,7 @@ class Mahasiswa extends CI_Controller {
 		// Call save function
 		$this->mhs->save($data, true);
 
-		redirect(base_url('mahasiswa/index'));
+		redirect(base_url('mahasiswa/'));
 	}
 
 	public function delete()
