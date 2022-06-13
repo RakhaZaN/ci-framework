@@ -1,3 +1,8 @@
+<?php 
+if (!$this->session->has_userdata('is_login')) {
+	redirect(base_url('auth/login'));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

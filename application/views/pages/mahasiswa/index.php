@@ -87,7 +87,7 @@
 		}).then((result) => {
 			if (result.isConfirmed) {
 				$.ajax({
-					url: './delete?nim='+nim,
+					url: './delete?nim=' + nim,
 					type: 'GET',
 					error: function(data) {
 						Swal.fire('Something Gone Wrong!', 'Please try again for a few minutes.', 'error')

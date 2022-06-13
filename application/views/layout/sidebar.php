@@ -1,10 +1,10 @@
 <div id="sidebar" class="active">
 	<div class="sidebar-wrapper active">
 		<div class="sidebar-header position-relative">
-			<div class="d-flex justify-content-between align-items-center">
-				<div class="logo">
+			<div class="d-flex justify-content-end align-items-center">
+				<!-- <div class="logo">
 					<a href="#"><img src="<?= base_url('public/assets/images/logo/logo.svg') ?>" alt="Logo" srcset=""></a>
-				</div>
+				</div> -->
 				<div class="theme-toggle d-flex gap-2  align-items-center mt-2">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
 						<g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -31,26 +31,34 @@
 				</div>
 			</div>
 		</div>
+		<div class="d-flex align-items-center px-5 mt-3">
+			.<div class="avatar avatar-md">
+				<img src="<?= base_url('public/assets/images/faces/2.jpg') ?>">
+			</div>
+			<p class="font-bold ms-3 mb-0"><?= $this->session->has_userdata('USERNAME') ? $this->session->userdata('USERNAME') : 'Si Ganteng' ?></p>
+		</div>
 		<div class="sidebar-menu">
 			<ul class="menu">
 
 				<li class="sidebar-title">Menu</li>
 
-				<li class="sidebar-item <?= $this->uri->segment(1) == '' ? 'active':'' ?> ">
-					<a href="<?= base_url('index.php') ?>" class='sidebar-link'>
+				<li class="sidebar-item <?= $this->uri->segment(1) == '' ? 'active' : '' ?> ">
+					<a href="<?= base_url('dashboard/') ?>" class='sidebar-link'>
 						<i class="bi bi-grid-fill"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
 
-				<li class="sidebar-item <?= $this->uri->segment(1) == 'mahasiswa' ? 'active':'' ?>">
+				<?php if($this->session->userdata('ROLE') == 'ADMIN') { ?>
+				<li class="sidebar-item <?= $this->uri->segment(1) == 'mahasiswa' ? 'active' : '' ?>">
 					<a href="<?= base_url('index.php/mahasiswa') ?>" class='sidebar-link'>
 						<i class="bi bi-person-badge-fill"></i>
 						<span>Mahasiswa</span>
 					</a>
 				</li>
+				<?php } ?>
 
-				<li class="sidebar-item has-sub">
+				<!-- <li class="sidebar-item has-sub">
 					<a href="#" class='sidebar-link'>
 						<i class="bi bi-stack"></i>
 						<span>Components</span>
@@ -99,6 +107,15 @@
 							<a href="component-tooltip.html">Tooltip</a>
 						</li>
 					</ul>
+				</li> -->
+
+				<li class="sidebar-item">
+					<?= form_open('auth/logout') ?>
+					<button type="submit" class='btn btn-block btn-outline-danger d-flex align-items-center justify-content-center gap-2'>
+						<i class="bi bi-arrow-bar-left"></i>
+						<span>Logout</span>
+					</button>
+					<?= form_close() ?>
 				</li>
 
 			</ul>

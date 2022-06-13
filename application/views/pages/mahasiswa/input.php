@@ -17,7 +17,10 @@
 					</div>
 					<div class="card-content">
 						<div class="card-body">
-							<form action="<?= isset($mhs) ? './update':'./store' ?>" method="POST" class="form form-horizontal">
+							<?php if(isset($mhs)) {
+								echo form_open('mahasiswa/update', ['class'=>'form form-horizontal'], ['nim'=>$mhs->nim]);
+							} else {
+								echo form_open('mahasiswa/store', ['class'=>'form form-horizontal']) ?>
 								<div class="form-body">
 									<div class="row <?= isset($mhs) ? 'd-none':'' ?>">
 										<div class="col-md-4">
@@ -27,6 +30,7 @@
 											<input type="text" name="fnim" id="fnim" class="form-control" placeholder="Input nim" value="<?= isset($mhs) ? $mhs->nim:'' ?>" <?= isset($mhs) ? 'hidden':'' ?>>
 										</div>
 									</div>
+							<?php } ?>
 									<div class="row">
 										<div class="col-md-4">
 											<label for="fname">Name</label>
@@ -94,12 +98,12 @@
 									</div>
 									<div class="row">
 										<div class="col-12 d-flex justify-content-end gap-3">
-											<a href="<?= base_url($this->uri->segment(1)) ?>" class="btn btn-sm btn-secondary d-flex align-items-center">Cancel</a>
+											<a href="<?= base_url($this->uri->segment(1).'/') ?>" class="btn btn-sm btn-secondary d-flex align-items-center">Cancel</a>
 											<button type="submit" class="btn btn-primary">Save</button>
 										</div>
 									</div>
 								</div>
-							</form>
+							<?= form_close() ?>
 						</div>
 					</div>
 				</div>
