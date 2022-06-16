@@ -1,9 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Home extends CI_Controller {
 
 	public function index()
+	{
+		$this->load->view('pages/landing-page');
+	}
+
+	public function admin()
 	{
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');

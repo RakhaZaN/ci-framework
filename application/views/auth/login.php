@@ -17,10 +17,16 @@
 		<div class="row h-100">
 			<div class="col-lg-5 col-12">
 				<div id="auth-left">
+					<a href="<?= base_url() ?>" class="btn btn-light icon icon-left">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+						</svg>
+						Back
+					</a>
 					<!-- <div class="auth-logo">
 						<a href="#"><img src="<?= base_url('public/assets/images/logo/logo.svg') ?>" alt="Logo"></a>
 					</div> -->
-					<h1 class="auth-title">Log in.</h1>
+					<h1 class="auth-title mt-4">Log in.</h1>
 					<!-- <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p> -->
 
 					<?= form_open('auth/signin') ?>
@@ -62,10 +68,10 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script>
-		$(document).ready(function () {
-			let login_success = <?=  $this->session->has_userdata('login_success') ? $this->session->userdata('login_success'):'null' ?>
-		
-			if(login_success != null && login_success == false) {
+		$(document).ready(function() {
+			let login_success = <?= $this->session->has_userdata('login_success') ? $this->session->userdata('login_success') : 'null' ?>
+
+			if (login_success != null && login_success == false) {
 				swAlert('Login Failed', 'Username or Password is wrong!', 'error')
 			}
 		})

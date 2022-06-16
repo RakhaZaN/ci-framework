@@ -39,7 +39,7 @@ class Auth extends CI_Controller
 			$this->session->set_userdata('is_login', true);
 			$this->session->set_flashdata('login_success', 'true');
 			
-			redirect(base_url('dashboard/'));
+			redirect(base_url('home/admin'));
 		} else {
 			$this->session->set_flashdata('login_success', 'false');
 			redirect(base_url('auth/login'));
