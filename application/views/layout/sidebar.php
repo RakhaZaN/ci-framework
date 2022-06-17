@@ -42,8 +42,8 @@
 
 				<li class="sidebar-title">Menu</li>
 
-				<li class="sidebar-item <?= $this->uri->segment(1) == '' ? 'active' : '' ?> ">
-					<a href="<?= base_url('dashboard/') ?>" class='sidebar-link'>
+				<li class="sidebar-item <?= $this->uri->segment(2) == 'admin' ? 'active' : '' ?> ">
+					<a href="<?= base_url('home/admin') ?>" class='sidebar-link'>
 						<i class="bi bi-grid-fill"></i>
 						<span>Dashboard</span>
 					</a>
@@ -51,7 +51,7 @@
 
 				<?php if($this->session->userdata('ROLE') == 'ADMIN') { ?>
 				<li class="sidebar-item <?= $this->uri->segment(1) == 'mahasiswa' ? 'active' : '' ?>">
-					<a href="<?= base_url('index.php/mahasiswa') ?>" class='sidebar-link'>
+					<a href="<?= base_url('index.php/mahasiswa/') ?>" class='sidebar-link'>
 						<i class="bi bi-person-badge-fill"></i>
 						<span>Mahasiswa</span>
 					</a>

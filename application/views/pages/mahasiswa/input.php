@@ -22,7 +22,7 @@
 							} else {
 								echo form_open('mahasiswa/store', ['class'=>'form form-horizontal']) ?>
 								<div class="form-body">
-									<div class="row <?= isset($mhs) ? 'd-none':'' ?>">
+									<div class="row">
 										<div class="col-md-4">
 											<label for="fnim">NIM</label>
 										</div>

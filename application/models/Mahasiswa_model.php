@@ -39,4 +39,21 @@ class Mahasiswa_model extends CI_Model {
 	{
 		return $this->ipk > 3.75 ? 'Cumlaude' : 'Baik';
 	}
+
+	public function do_upload()
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'jpg|png';
+		$config['overwrite'] = true;
+		$config['max_width'] = 720;
+		$config['max_height'] = 1280;
+		$new_name = $this->input->post('nim').'.png';
+		$config['file_name'] = $new_name;
+
+		$this->load->library('upload', $config);
+
+		$this->upload->initialize($config);
+
+		return $this->upload->do_upload('ffoto');
+	}
 }
